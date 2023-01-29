@@ -29,6 +29,7 @@ const LayoutCompent = () => {
   const { countCart, setCountCart } = useCart();
 
   const [data, setData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const instance = axios.create({
     baseURL: "https://mks-challenge-api-frontend.herokuapp.com/api/v1",
@@ -126,6 +127,36 @@ const handleAdd = (id: number) => {
    );
   };
 
+  const checkout = () => {
+    setLoading(true);
+    const newCart = countCart.map((item: {
+      id: number;
+      name: string;
+      price: number;
+      photo: string;
+      quant: number;
+      valorItem: number;
+    }) => {
+      return {
+        ...item,
+        quant: 0,
+        price: 0,
+      };
+    });
+
+    setCountCart(newCart);
+
+    setTimeout(() => {
+    notification.success({
+      message: 'Compra realizada com sucesso!',
+      description:
+        'Obrigado por comprar conosco!',
+    });
+    setLoading(false);
+    handleCancel();
+  }, 5000);
+  };
+
 
   useEffect(() => {
     totalCheckout();
@@ -154,13 +185,30 @@ const handleAdd = (id: number) => {
             okText
             bodyStyle={{ background: "#0F52BA" }}
           >
-            <div
+            {loading ? (  
+              <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "73vh",
+              }}>
+            <Spin tip="Loading..." 
+            >
+               <Alert
+                   message="Aguarde"
+                   description="Confirmando sua compra..."
+                   type="info"
+                   />
+           </Spin>
+              </div> 
+           ): (    
+           <div
               style={{
                 display: "flex",
                 height: "73vh",
-
               }}
             >
+           
               <div>
                 {countCart.length === 0 && (
                   <div
@@ -217,14 +265,16 @@ const handleAdd = (id: number) => {
                   );
                 })}
               </div>
-            </div>
+            </div>)}
+           
+        
             <div className="total">
               <h1>Total</h1>{Intl.NumberFormat("pt-br", {
                               style: "currency",
                               currency: "BRL",
                             }).format(total)}
             </div>
-            <button className="btn-compra">Finaliza Compra</button>
+            <button className="btn-compra" onClick={checkout}>Finaliza Compra</button>
           </ModalContainer>
           <div
             style={{
