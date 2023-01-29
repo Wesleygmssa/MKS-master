@@ -14,7 +14,7 @@ const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
   const notify = () => toast("Carrinho vazio!");
   return (
     <>
-        <Container countCart={countCart} >
+        <Container countCart={countCart}  title={countCart.length === 0 ? "Carrinho vazio" : ""}>
         <ToastContainer/>
       <h1>MKS</h1>
       <p>Sistemas</p>
@@ -38,7 +38,7 @@ const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
         }}
       >
         <FiShoppingCart />
-        <div className="cart-item" title={countCart.length === 0 ? "Carrinho vazio" : ""}>{countCart?.length}</div>
+        <div className="cart-item" >{countCart?.length}</div>
       </div>
 
     </Container>
