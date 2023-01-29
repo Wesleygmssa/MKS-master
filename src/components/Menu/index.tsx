@@ -10,11 +10,11 @@ interface Props {
 }
 
 const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
-  const { setCountCart, countCart } = useCart();
+  const { countCart } = useCart();
   const notify = () => toast("Carrinho vazio!");
   return (
     <>
-        <Container>
+        <Container countCart={countCart} >
         <ToastContainer/>
       <h1>MKS</h1>
       <p>Sistemas</p>
@@ -38,9 +38,7 @@ const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
         }}
       >
         <FiShoppingCart />
-        <div className="cart-item" title={
-            countCart.length === 0 ? "Carrinho vazio" : ""
-        }>{countCart?.length}</div>
+        <div className="cart-item" title={countCart.length === 0 ? "Carrinho vazio" : ""}>{countCart?.length}</div>
       </div>
 
     </Container>
