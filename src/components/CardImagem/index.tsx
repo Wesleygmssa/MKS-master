@@ -18,6 +18,7 @@ interface CardImagem {
 
 const CardImagem = ({data}:CardImagem) => {
   const notify = () => toast("Produto já adicionado ao carrinho!");
+  const notify2 = () => toast("Produto adicionado ao carrinho!");
   const { setCountCart , countCart} = useAuth();
   // const [infoVisible, setInfoVisible] = React.useState(false);
 
@@ -28,6 +29,7 @@ const CardImagem = ({data}:CardImagem) => {
       notify();
     } else {
       setCountCart((old: any) => [...old, object]);
+      // notify2();
       // setInfoVisible(false);
     }
     window.scrollTo(0, 0);
@@ -39,7 +41,7 @@ const CardImagem = ({data}:CardImagem) => {
  
   return (
     <>
-    <ToastContainer />
+    <ToastContainer  />
    
     <Container>
     

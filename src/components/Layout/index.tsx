@@ -114,7 +114,16 @@ const handleAdd = (id: number) => {
       return item;
     });
 
-   setCountCart(newCart);
+   setCountCart(
+      newCart.filter((item: {
+        id: number;
+        name: string;
+        price: number;
+        photo: string;
+        quant: number;
+        valorItem: number;
+      }) => item.quant > 0)
+   );
   };
 
 
