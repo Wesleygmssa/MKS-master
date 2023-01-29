@@ -46,9 +46,13 @@ const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
 
 {
       countCart.length > 0 && <Alert message="Verificamos item no carrinho, finalize a compra!" type="warning"  style={{
-        fontSize: 20,
+        fontSize: 16,
+        height: 25,
+        padding: 12,
         textAlign: 'center',
         fontWeight: 'bold',
+        zIndex: 999,
+        position: 'relative',
         }} />
     }
    
