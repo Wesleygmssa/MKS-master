@@ -1,7 +1,7 @@
 import { Container, SpinContainer } from "./styles";
 
 import { RiShoppingBag3Line } from "react-icons/ri";
-import { useAuth } from "../../hooks/carts";
+import { useCart } from "../../hooks/carts";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,7 +19,7 @@ interface CardImagem {
 const CardImagem = ({data}:CardImagem) => {
   const notify = () => toast("Produto já adicionado ao carrinho!");
   const notify2 = () => toast("Produto adicionado ao carrinho!");
-  const { setCountCart , countCart} = useAuth();
+  const { setCountCart , countCart} = useCart();
   // const [infoVisible, setInfoVisible] = React.useState(false);
 
   const checkExistsItem = (object: any) => {

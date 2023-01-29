@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "./styles";
 import { ToastContainer, toast } from 'react-toastify';
 import { FiShoppingCart } from "react-icons/fi";
-import { useAuth } from "../../hooks/carts";
+import { useCart } from "../../hooks/carts";
 import { Alert } from "antd";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
-  const { setCountCart, countCart } = useAuth();
+  const { setCountCart, countCart } = useCart();
   const notify = () => toast("Carrinho vazio!");
   return (
     <>

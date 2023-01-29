@@ -12,7 +12,7 @@ export const AuthProvider: React.FC<any> = ({ children }) => {
   );
 };
 
-export function useAuth(): any {
+export function useCart(): any {
   const context = useContext(AuthContext);
 
   if (!context) {

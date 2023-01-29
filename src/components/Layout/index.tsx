@@ -19,14 +19,14 @@ import {
   ModalContainer,
 } from "./styles";
 
-import { useAuth } from "../../hooks/carts";
+import { useCart } from "../../hooks/carts";
 import axios from "axios";
 import { SpinContainer } from "../CardImagem/styles";
 
 const LayoutCompent = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [total, setTotal] = useState<any>(0);
-  const { countCart, setCountCart } = useAuth();
+  const { countCart, setCountCart } = useCart();
 
   const [data, setData] = useState<any[]>([]);
 
