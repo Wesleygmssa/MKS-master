@@ -80,6 +80,12 @@ export const Container = styled.div`
     svg {
       font-size: 2.6rem;
     }
+    transition: 0.1s ;
+
+    &:hover {
+      background: #2877ee;
+      color: white;
+    }
   }
 `;
 
