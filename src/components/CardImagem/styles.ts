@@ -1,4 +1,31 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const heartBeat = keyframes`
+  0%
+  {
+    transform: scale( .90 );
+  }
+  20%
+  {
+    transform: scale( 1.1 );
+  }
+  40%
+  {
+    transform: scale( .90 );
+  }
+  60%
+  {
+    transform: scale( 1.1 );
+  }
+  80%
+  {
+    transform: scale( .90 );
+  }
+  100%
+  {
+    transform: scale( .90 );
+  }
+`;
 
 export const Container = styled.div`
   display: grid;
@@ -77,14 +104,16 @@ export const Container = styled.div`
     font-size: 2.4rem;
     font-weight: 600px;
     padding: 1rem;
+    transition: 0.1s ;
+    animation: ${heartBeat} 2s;
     svg {
       font-size: 2.6rem;
     }
-    transition: 0.1s ;
 
     &:hover {
       background: #2877ee;
       color: white;
+          animation: ${heartBeat} 2s;
     }
   }
 `;
