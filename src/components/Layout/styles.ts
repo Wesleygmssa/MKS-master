@@ -25,6 +25,7 @@ export const ModalContainer = styled(Modal)`
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 999!important;
 
   .modal-resumo {
     /* width: 300px; */
