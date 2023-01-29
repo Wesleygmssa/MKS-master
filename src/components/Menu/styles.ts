@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 10rem;
-  /* position: fixed; ; */
+  position: fixed; /* Set the navbar to fixed position */
+  z-index: 9999!important;
 
   background: rgba(15, 82, 186, 1);
   display: flex;

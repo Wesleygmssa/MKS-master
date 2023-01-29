@@ -32,7 +32,7 @@ const CardImagem = ({data}:CardImagem) => {
       // notify2();
       // setInfoVisible(false);
     }
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   };
 
 

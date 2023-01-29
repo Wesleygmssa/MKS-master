@@ -18,7 +18,7 @@ export const Content = styled.div`
   width: 80%;
   height: 100%;
   align-items: center;
-  margin-top: 9rem;
+  margin-top: 15rem;
 `;
 
 export const ModalContainer = styled(Modal)`
