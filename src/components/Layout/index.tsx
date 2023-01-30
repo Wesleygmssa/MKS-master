@@ -57,7 +57,7 @@ const LayoutCompent = () => {
   };
 
   const totalCheckout = () => {
-    let total: any = 0;
+    let total: number = 0;
     countCart.map((item: {
       price: number;
     }) => {
