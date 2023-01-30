@@ -24,7 +24,7 @@ const CardImagem = ({data}:CardImagem) => {
   const checkExistsItem = (object: any) => {
     let verify = countCart.find((item: any) => item.id === object.id);
     if (verify) {
-      notification.info({
+      notification.warn({
         message: 'Produto já adicionado ao carrinho!',
         description:
           'Você pode alterar a quantidade no carrinho',

@@ -1,19 +1,19 @@
 import React, { createContext, useCallback, useContext, useState } from "react";
 
-const AuthContext = createContext<any>({} as any);
+const CartContext = createContext<any>({} as any);
 
 export const AuthProvider: React.FC<any> = ({ children }) => {
   const [countCart, setCountCart] = useState<any>([]);
 
   return (
-    <AuthContext.Provider value={{ setCountCart, countCart }}>
+    <CartContext.Provider value={{ setCountCart, countCart }}>
       {children}
-    </AuthContext.Provider>
+    </CartContext.Provider>
   );
 };
 
 export function useCart(): any {
-  const context = useContext(AuthContext);
+  const context = useContext(CartContext);
 
   if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
