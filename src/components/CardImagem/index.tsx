@@ -27,8 +27,8 @@ const CardImagem = ({data}:CardImagem) => {
 
   const { setCountCart , countCart} = useCart();
 
-  const checkExistsItem = (object: any) => {
-    let verify = countCart.find((item: any) => item.id === object.id);
+  const checkExistsItem = (object: countCart) => {
+    let verify = countCart.find((item: countCart) => item.id === object.id);
     if (verify) {
       notification.warn({
         message: 'Produto já adicionado ao carrinho!',
@@ -47,7 +47,7 @@ const CardImagem = ({data}:CardImagem) => {
   return (
     <>
     <ToastContainer  />
-   
+  
     <Container>
     
       {data.length > 0 && data.map((item: any) => (
