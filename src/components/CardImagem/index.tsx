@@ -36,7 +36,7 @@ const CardImagem = ({data}:CardImagem) => {
           'Você pode alterar a quantidade no carrinho',
       });
     } else {
-      setCountCart((old: any[]) => [...old, object] );
+      setCountCart((old: countCart[]) => [...old, object]  as countCart[]);
     }
   };
 
@@ -67,7 +67,7 @@ const CardImagem = ({data}:CardImagem) => {
           }}>{item.description}</p>
           <button
             onClick={() => {
-              let object = {
+              let object: countCart = {
                 id: Number(item?.id),
                 name: item?.name,
                 price: Number(item?.price),
