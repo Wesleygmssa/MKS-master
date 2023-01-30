@@ -5,6 +5,7 @@ import { useCart } from "../../hooks/carts";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { notification } from "antd";
 
 
 interface Props {
@@ -26,7 +27,12 @@ const CardImagem = ({data}:CardImagem) => {
     let verify = countCart.find((item: any) => item.id === object.id);
     if (verify) {
       // setInfoVisible(true);
-      notify();
+      // notify();
+      notification.info({
+        message: 'Produto já adicionado ao carrinho!',
+        description:
+          'Você pode alterar a quantidade no carrinho',
+      });
     } else {
       setCountCart((old: any) => [...old, object]);
       // notify2();
