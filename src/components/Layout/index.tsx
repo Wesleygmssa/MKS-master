@@ -150,7 +150,7 @@ const handleAdd = (id: number) => {
     setLoading(false);
     handleCancel();
     setCountCart([]);
-  }, 5000);
+  }, 7000);
   };
 
 
@@ -184,11 +184,14 @@ const handleAdd = (id: number) => {
             {loading ? (  
               <div style={{
                 display: "flex",
+                height: "73vh",
                 justifyContent: "center",
                 alignItems: "center",
-                height: "73vh",
+
+
               }}>
-            <Spin tip="Loading..." 
+            <Spin  
+            size="large"
             >
                <Alert
                    message="Aguarde"
