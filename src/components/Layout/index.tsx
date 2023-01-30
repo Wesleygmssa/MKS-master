@@ -144,7 +144,6 @@ const handleAdd = (id: number) => {
       };
     });
 
-    setCountCart(newCart);
 
     setTimeout(() => {
     notification.success({
@@ -154,6 +153,7 @@ const handleAdd = (id: number) => {
     });
     setLoading(false);
     handleCancel();
+    setCountCart([]);
   }, 5000);
   };
 
