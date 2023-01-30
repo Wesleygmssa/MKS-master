@@ -71,13 +71,14 @@ const LayoutCompent = () => {
 
 
 const handleAdd = (id: number) => {
-    const newCart = countCart.map((item: {
+    const newCart = countCart.map((item:{
       id: number;
       name: string;
-      price: number;
+      price: number;  
       photo: string;
       quant: number;
       valorItem: number;
+      
     }) => {
       if (item.id === id) {
         return {

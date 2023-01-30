@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 
 import { RiShoppingBag3Line } from "react-icons/ri";
-import { useCart } from "../../hooks/carts";
+import { countCart, useCart } from "../../hooks/carts";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -36,7 +36,7 @@ const CardImagem = ({data}:CardImagem) => {
           'Você pode alterar a quantidade no carrinho',
       });
     } else {
-      setCountCart((old: any) => [...old, object]);
+      setCountCart((old: any[]) => [...old, object] );
     }
   };
 
@@ -68,7 +68,7 @@ const CardImagem = ({data}:CardImagem) => {
           <button
             onClick={() => {
               let object = {
-                id: item?.id,
+                id: Number(item?.id),
                 name: item?.name,
                 price: Number(item?.price),
                 photo: item?.photo,

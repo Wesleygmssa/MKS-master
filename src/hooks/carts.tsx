@@ -1,27 +1,27 @@
 import React, { createContext, useContext, useState } from "react";
 
-interface CartContextData {
-  countCart:{
-    id: number;
-    name: string;
-    price: number;
-    photo: string;
-    description: string;
-  }[]
-  setCountCart: (countCart: any) => void;
+export type countCart = {
+  id: number;
+  name: string;
+  price: number;  
+  photo: string;
+  quant: number;
+  valorItem: number;
+
+
+
 }
+
+type CartContextData = {
+  countCart:countCart[];
+  setCountCart: (countCart: countCart[]) => void;
+};
+
 
 const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export const AuthProvider: React.FC<any> = ({ children }) => {
-  const [countCart, setCountCart] = useState<{
-    id: number;
-    name: string;
-    price: number;
-    photo: string;
-    description: string;
-  }[]
-  >([]);
+  const [countCart, setCountCart] = useState<countCart[]>([]);
 
   return (
     <CartContext.Provider value={{ setCountCart, countCart }}>
