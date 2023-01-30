@@ -13,7 +13,13 @@ interface Props {
 }
 
 interface CardImagem {
-  data: any
+  data: {
+    id: number;
+    name: string;
+    price: number;
+    photo: string;
+    description: string;
+  }[];
   setIsModalVisible: (isModalVisible: boolean) => void;
 }
 

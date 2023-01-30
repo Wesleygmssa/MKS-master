@@ -1,9 +1,27 @@
-import React, { createContext, useCallback, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-const CartContext = createContext<any>({} as any);
+interface CartContextData {
+  countCart:{
+    id: number;
+    name: string;
+    price: number;
+    photo: string;
+    description: string;
+  }[]
+  setCountCart: (countCart: any) => void;
+}
+
+const CartContext = createContext<CartContextData>({} as CartContextData);
 
 export const AuthProvider: React.FC<any> = ({ children }) => {
-  const [countCart, setCountCart] = useState<any>([]);
+  const [countCart, setCountCart] = useState<{
+    id: number;
+    name: string;
+    price: number;
+    photo: string;
+    description: string;
+  }[]
+  >([]);
 
   return (
     <CartContext.Provider value={{ setCountCart, countCart }}>
@@ -12,7 +30,7 @@ export const AuthProvider: React.FC<any> = ({ children }) => {
   );
 };
 
-export function useCart(): any {
+export function useCart(): CartContextData {
   const context = useContext(CartContext);
 
   if (!context) {
