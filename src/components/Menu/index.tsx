@@ -3,7 +3,7 @@ import { Container } from "./styles";
 import { ToastContainer, toast } from 'react-toastify';
 import { FiShoppingCart } from "react-icons/fi";
 import { useCart } from "../../hooks/carts";
-import { Alert } from "antd";
+import { Alert, notification } from "antd";
 
 interface Props {
   setIsModalVisible: (boolean: boolean) => void;
@@ -11,7 +11,6 @@ interface Props {
 
 const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
   const { countCart } = useCart();
-  const notify = () => toast("Carrinho vazio!");
   return (
     <>
         <Container countCart={countCart}  title={countCart.length === 0 ? "Carrinho vazio" : ""}>
@@ -32,9 +31,12 @@ const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
         }}
         onClick={() => {
           setIsModalVisible(true);
-          // if(countCart.length === 0)
-          // notify();
-          
+          if(countCart.length === 0)
+          notification.warning({
+            message: 'Carrinho vazio!',
+            description:
+              'Adicione produtos ao carrinho',
+          });
         }}
       >
         <FiShoppingCart />
@@ -45,7 +47,7 @@ const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
  
 
 {
-      countCart.length > 0 && <Alert message="Verificamos item no carrinho, finalize a compra!" type="warning"  style={{
+      countCart.length > 0 &&  <Alert message="Verificamos item no carrinho, finalize a compra!" type="warning"  style={{
         fontSize: 16,
         height: 25,
         padding: 12,
@@ -55,7 +57,6 @@ const Menu: React.FC<Props> = ({ setIsModalVisible }) => {
         position: 'relative',
         }} />
     }
-   
     </>
 
   );

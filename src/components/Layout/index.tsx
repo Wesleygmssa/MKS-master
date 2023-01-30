@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import HeaderMenu from "../Menu";
 import CardImagem from "../CardImagem";
 import { Alert, Spin } from "antd";
 
-import {
-  RadiusBottomleftOutlined,
-  RadiusBottomrightOutlined,
-  RadiusUpleftOutlined,
-  RadiusUprightOutlined,
-} from '@ant-design/icons';
-import { Button, Divider, notification, Space } from 'antd';
+
+import {  notification} from 'antd';
 
 import {
   Container,
@@ -210,17 +205,6 @@ const handleAdd = (id: number) => {
             >
            
               <div>
-                {countCart.length === 0 && (
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <h1 style={{ color: "#fff" }}>Carrinho vazio</h1>
-                  </div>
-                )}
                 {countCart.map((item: {
                   id: number;
                   name: string;

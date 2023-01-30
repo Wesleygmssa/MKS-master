@@ -37,7 +37,6 @@ export const Container = styled.div`
     @media screen and (max-width: 940px) {
       gap: 3rem;
       grid-template-columns: repeat(1, 1fr);
-      /* margin-left: -42px; */
       font-size: 2rem;
     }
   }

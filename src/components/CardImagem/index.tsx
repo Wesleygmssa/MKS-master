@@ -1,9 +1,9 @@
-import { Container, SpinContainer } from "./styles";
+import { Container } from "./styles";
 
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { useCart } from "../../hooks/carts";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { notification } from "antd";
 
@@ -18,16 +18,12 @@ interface CardImagem {
 }
 
 const CardImagem = ({data}:CardImagem) => {
-  const notify = () => toast("Produto já adicionado ao carrinho!");
-  const notify2 = () => toast("Produto adicionado ao carrinho!");
+
   const { setCountCart , countCart} = useCart();
-  // const [infoVisible, setInfoVisible] = React.useState(false);
 
   const checkExistsItem = (object: any) => {
     let verify = countCart.find((item: any) => item.id === object.id);
     if (verify) {
-      // setInfoVisible(true);
-      // notify();
       notification.info({
         message: 'Produto já adicionado ao carrinho!',
         description:
@@ -35,10 +31,7 @@ const CardImagem = ({data}:CardImagem) => {
       });
     } else {
       setCountCart((old: any) => [...old, object]);
-      // notify2();
-      // setInfoVisible(false);
     }
-    // window.scrollTo(0, 0);
   };
 
 
